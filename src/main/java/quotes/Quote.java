@@ -1,7 +1,7 @@
 package quotes;
 
 public class Quote {
-    private String author;
+    public String author;
     private String text;
 
     public Quote(String author, String text) {

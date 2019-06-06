@@ -7,5 +7,30 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class AppTest {
-    
+
+    @Test
+    // first quote is by Marilyn Monroe
+    public void testFirstQuoteAuthor() {
+        ReadFile test = new ReadFile();
+        test.readFile("src/main/resources/recentQuotes.json");
+        Quote[] quotes = test.quotes;
+
+        System.out.println(quotes[0].author);
+
+                assertEquals("test first author",
+                "Marilyn Monroe",
+                quotes[0].author);
+    }
+
+    @Test
+    // total number of quotes
+    public void testNumOfQuotes() {
+        ReadFile test = new ReadFile();
+        test.readFile("src/main/resources/recentQuotes.json");
+        Quote[] quotes = test.quotes;
+
+        assertEquals("number of quotes",
+                138,
+                quotes.length);
+    }
 }

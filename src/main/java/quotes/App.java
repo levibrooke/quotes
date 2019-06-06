@@ -13,23 +13,6 @@ public class App {
 
     public static void main(String[] args) {
 
-        Gson gson = new Gson();
-
-        try {
-            // read json file in
-            FileReader file = new FileReader(new File("src/main/resources/recentQuotes.json"));
-
-            // parse json file w/ gson & instantiate a quote
-            Quote[] quotes = gson.fromJson(file, Quote[].class);
-
-            // print random
-            int random = (int) (Math.random() * quotes.length);
-            System.out.println(quotes[random].toString());
-
-        } catch (FileNotFoundException e) {
-            System.out.println(e);
-        } catch (NullPointerException e) {
-            System.out.println(e);
-        }
+        ReadFile.readFile("src/main/resources/recentQuotes.json");
     }
 }
